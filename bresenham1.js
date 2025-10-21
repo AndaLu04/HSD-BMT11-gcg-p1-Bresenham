@@ -25,14 +25,23 @@
 
 
 function drawLine(x0, y0, x1, y1){
+    let y = y0;        
+    let a = y1-y0;      //delta y
+    let b = -(x1-x0);   //- delta x
+    let Q = 2*a+b;
+    let Q_step = 2*(a+b);
+    let Q_equal = 2*a;
 
+    for (let x=x0; x<=x1; x++)
+    {
+        setPixel(x, y);
+        if (Q < 0){
+            Q=Q+Q_equal;
+        } else {
+            Q=Q+Q_step;
+            y++;
+        }
+    }
 
 }
 
-
-
-////////////////////////////////////////////////////////////////////////////////
-// example(i)
-// Diese Funktion dient als Codebeispiel.
-// Sie wird beim Laden der Seite aufgerufen und kann entfernt werden.
-////////////////////////////////////////////////////////////////////////////////
