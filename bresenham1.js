@@ -8,11 +8,11 @@
 //
 // Studiengang: BMT / BMI
 // Gruppe     : BK
-// Autor 1    :Luis Rodriguez Hofheinz
-// Autor 2    :Anna Lövenich
-// Autor 3    :Mirai Schröder
-// Autor 4    :Robert Dörnmann
-// Autor 5    :Lucas Jünger
+// Autor 1    : Luis Rodriguez Hofheinz
+// Autor 2    : Anna Lövenich
+// Autor 3    : Mirai Schröder
+// Autor 4    : Robert Dörnmann
+// Autor 5    : Lucas Jünger
 ////////////////////////////////////////////////////////////////////////////////
 
 

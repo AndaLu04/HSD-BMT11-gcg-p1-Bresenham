@@ -52,7 +52,7 @@ function drawLine(x0, y0, x1, y1){
 
     if (dy<0) {
         y_step = -1;
-        dy = -dy;       // spiegelung an der x-Achse       
+        dy = -dy;       // Spiegelung an der x-Achse       
     }
 
     let Q = 2*dy-dx;
