@@ -24,18 +24,38 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-function drawLine(x0, y0, x1, y1){
+function drawLine(parameter_x0, parameter_y0, parameter_x1, parameter_y1){
 
-    //Vorberechnungen für x
+    // Deklaration der x & y Werte damit wir diese hinterher auch ändern könnten
+    let x0 = parameter_x0;
+    let y0 = parameter_y0;
+    let x1 = parameter_x1;
+    let y1 = parameter_y1;
+
+
+    // Berechnungen von dx & dy und den Beträgen
     let dx = x1-x0;     //delta x
     let betrag_dx = Math.abs(dx);
 
+    let dy = y1-y0;      //delta y
+    let betrag_dy = Math.abs(dy);
+
+    // Deklaration
+    let steil;
+
+    if (betrag_dy > betrag_dx){
+      steil = true;
+      [dx, dy] = [dy, dx];
+      x0 = parameter_y0;
+      y0 = parameter_x0;
+      x1 = parameter_y1;
+      y1 = parameter_x1;
+    }
 
     // Standard: Linie nach rechts, (dx>0)
     let x_start = x0;
     let x_end = x1+1; // damit bei x!=x_end keine Lücke entsteht
     let x_step = 1;
-
 
     // Wenn Linie nach links, (dx<0)
     if (dx<0) {
@@ -44,13 +64,8 @@ function drawLine(x0, y0, x1, y1){
         dx = -dx;       // hiermit spiegeln wir an der y-Achse
     }
 
-
     //Vorberechnungen für y
     let y = y0;        
-    let dy = y1-y0;      //delta y
-    let betrag_dy = Math.abs(dy);
-
-
     let y_step = 1;       
 
     if (dy<0) {
@@ -65,8 +80,8 @@ function drawLine(x0, y0, x1, y1){
     // x_start: startpunkt; 
     // x!=x_end: wir machen so lange weiter, wie das aktuelle x ungleich x_end ist; 
     // x_step: entscheidet über Inkrement oder Dekrement.
-
-    if (betrag_dy > betrag_dx) {
+    
+    if (steil) {
       for (let x=x_start; x!=x_end; x=x+x_step) {
           setPixel(y, x);
           if (Q < 0){
@@ -93,5 +108,4 @@ function drawLine(x0, y0, x1, y1){
           console.log(Q);
       }
     }
-
 }
